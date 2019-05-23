@@ -8,6 +8,30 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 
 
+/*  DB SCHEMA
+
+DATABASE name: mydatabase
+
+CREATE TABLE `users` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(60) NOT NULL,
+  `user_email` varchar(60) NOT NULL,
+  `user_password` varchar(255) NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1
+
+CREATE TABLE `tasks` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `task_desc` varchar(255) NOT NULL,
+  `task_created` date NOT NULL,
+  `task_due` date NOT NULL,
+  `users_id` char(60) DEFAULT NULL,
+  `task_complete` char(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1
+
+*/
+
 
 // Include necessary file
 require_once('./includes/db.inc.php');
