@@ -8,15 +8,9 @@
 	try{
 	
 		$id = $_POST['id'];
-		$task_desc = $_POST['task_desc'];
-		$task_created = $_POST['task_created'];
-		$task_due = $_POST['task_due'];
 
-	
-
-		$sql = "UPDATE tasks SET task_complete = 'Y' WHERE id = '$id'";
-
-
+		$sql = "UPDATE `tasks` SET `task_complete`='Y' WHERE id = '$id'";
+		
 
 		//if-else statement in executing our query
 		if($db->exec($sql)){

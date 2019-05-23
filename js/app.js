@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	fetch();
+
 	//add
 	$('#addnew').click(function(){
 		$('#add').modal('show');
@@ -90,37 +91,80 @@ $(document).ready(function(){
 		});
 	});
 	//
-    
-    	//done
-	$(document).on('click', '.done', function(){
-		var id = $(this).data('id');
-		getDetails(id);
-		$('#done').modal('show');
-	});
+	
+	
 
-	$('.id').click(function(){
-		var id = $(this).val();
-		$.ajax({
-			method: 'POST', 
-			url: 'done.php',
-			data: {id:id},
-			dataType: 'json',
-			success: function(response){
-				if(response.error){
-					$('#alert').show();
-					$('#alert_message').html(response.message);
-				}
-				else{
-					$('#alert').show();
-					$('#alert_message').html(response.message);
-					fetch();
-				}
-				
-				$('#done').modal('hide');
+// test
+//done new 
+$(document).on('click', '.done', function(){
+	var id = $(this).data('id');
+	getDetails(id);
+	$('#done').modal('show');
+});
+$('#doneForm').submit(function(e){
+	e.preventDefault();
+	var doneform = $(this).serialize();
+	$.ajax({
+		method: 'POST',
+		url: 'done.php',
+		data: doneform,
+		dataType: 'json',
+		success: function(response){
+			if(response.error){
+				$('#alert').show();
+				$('#alert_message').html(response.message);
 			}
-		});
+			else{
+				$('#alert').show();
+				$('#alert_message').html(response.message);
+				fetch();
+			}
+
+			$('#done').modal('hide');
+		}
 	});
-	//
+});
+//
+
+
+
+// test done
+
+
+
+
+
+
+    // 	//done
+	// $(document).on('click', '.done', function(){
+	// 	var id = $(this).data('id');
+	// 	getDetails(id);
+	// 	$('#done').modal('show');
+	// });
+
+	// $('.id').click(function(){
+	// 	var id = $(this).val();
+	// 	$.ajax({
+	// 		method: 'POST', 
+	// 		url: 'done.php',
+	// 		data: {id:id},
+	// 		dataType: 'json',
+	// 		success: function(response){
+	// 			if(response.error){
+	// 				$('#alert').show();
+	// 				$('#alert_message').html(response.message);
+	// 			}
+	// 			else{
+	// 				$('#alert').show();
+	// 				$('#alert_message').html(response.message);
+	// 				fetch();
+	// 			}
+				
+	// 			$('#done').modal('hide');
+	// 		}
+	// 	});
+	// });
+	// //
 
 	//hide message
 	$(document).on('click', '.close', function(){

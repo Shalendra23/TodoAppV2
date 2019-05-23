@@ -88,19 +88,5 @@ a{
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="js/app.js"></script>
 
-<!-- <script type="text/javascript">
-        $(document).ready(function () {
-       $('td').on('click', function(event){
-           $(event.target).parent().css('text-decoration','line-through');
-       })
-       $('tr').on('click', function(){
-           $(this).parent().css('text-decoration','line-through');
-           
-        })
-    })
-
-    </script> -->
-
-
 </body>
 </html>
